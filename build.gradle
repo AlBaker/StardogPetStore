@@ -1,0 +1,34 @@
+apply plugin: "java"
+apply plugin: "eclipse"
+apply plugin: "eclipse-wtp"
+apply plugin: "war"
+apply plugin: "jetty"
+
+def springVersion = "3.1.0.RELEASE"
+def slf4jVersion = "1.6.1"
+// TODO - change to wherever stardog is unzipped
+def stardogLocation = "../../tools/stardog/stardog-1.0/lib"
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+}
+
+dependencies{
+	compile "org.slf4j:jcl-over-slf4j:$slf4jVersion","org.slf4j:jul-to-slf4j:$slf4jVersion"
+	compile "org.springframework:spring-webmvc:$springVersion"
+	compile "javax.servlet:servlet-api:2.5"
+	compile "javax.servlet:jstl:1.1.2", "taglibs:standard:1.1.2"
+	// JSR303 (Bean Validation) API and the default implementations provided by Hibernate
+	compile "javax.validation:validation-api:1.0.0.GA"
+	runtime "org.hibernate:hibernate-validator:4.2.0.Final"
+	runtime "org.slf4j:slf4j-log4j12:$slf4jVersion"
+	testCompile "junit:junit:4.8.2"
+	testCompile "org.springframework:spring-test:$springVersion"
+	
+	// Stardog deps made easy with Gradle fileTree
+	// gremlin in stardog/lib comes with groovy, we don't want to pick that up for gradle
+	compile fileTree(dir: stardogLocation, include: '**/*.jar', exclude: '**/*gremlin*/*')
+	compile fileTree(dir:'lib', include: '**/*.jar')
+	
+}

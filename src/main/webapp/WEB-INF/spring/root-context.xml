@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<bean name="dataSource" class="com.clarkparsia.stardog.ext.spring.DataSourceFactoryBean">
+		<property name="to" value="petstore"/>
+		<property name="username" value="admin"/>
+		<property name="password" value="admin"/>
+		<property name="url" value="snarl://localhost:5820/"/>
+	</bean>
+
+	<bean name="snarlTemplate" class="com.clarkparsia.stardog.ext.spring.SnarlTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<bean name="importer" class="com.clarkparsia.stardog.ext.spring.DataImporter">
+		<property name="snarlTemplate" ref="snarlTemplate"/>
+		<property name="format" value="N3"/>
+		<property name="inputFiles">
+			<list>
+				<value>classpath:dogs.n3</value>
+			</list>
+		</property>
+	</bean>
+	
+</beans>

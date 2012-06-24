@@ -1,0 +1,19 @@
+<http://www.example.com#sparky>
+      <http://www.example.com/name>
+              "Sparky" ;
+      <http://xmlns.com/foaf/0.1/page>
+              <http://en.wikipedia.org/wiki/Hunting_dog> .
+
+<http://en.wikipedia.org/wiki/Collie>
+      <http://xmlns.com/foaf/0.1/depication>
+              <http://upload.wikimedia.org/wikipedia/commons/8/85/Welsh_Sheepdog.jpg> .
+
+<http://en.wikipedia.org/wiki/Hunting_dog>
+      <http://xmlns.com/foaf/0.1/depication>
+              <http://upload.wikimedia.org/wikipedia/commons/5/5e/WhippetWhiteSaddled_wb.jpg> .
+
+<http://www.example.com#lassie>
+      <http://www.example.com/name>
+              "Lassie" ;
+      <http://xmlns.com/foaf/0.1/page>
+              <http://en.wikipedia.org/wiki/Collie> .
