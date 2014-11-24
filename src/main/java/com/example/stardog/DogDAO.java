@@ -4,7 +4,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
-import org.mortbay.log.Log;
 import org.openrdf.model.Statement;
 import org.openrdf.model.impl.URIImpl;
 import org.openrdf.query.BindingSet;
@@ -13,12 +12,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.clarkparsia.stardog.StardogException;
-import com.clarkparsia.stardog.api.Remover;
-import com.clarkparsia.stardog.ext.spring.GetterCallback;
-import com.clarkparsia.stardog.ext.spring.RemoverCallback;
-import com.clarkparsia.stardog.ext.spring.RowMapper;
-import com.clarkparsia.stardog.ext.spring.SnarlTemplate;
+import com.complexible.stardog.StardogException;
+import com.complexible.stardog.api.Remover;
+import com.complexible.stardog.ext.spring.GetterCallback;
+import com.complexible.stardog.ext.spring.RemoverCallback;
+import com.complexible.stardog.ext.spring.RowMapper;
+import com.complexible.stardog.ext.spring.SnarlTemplate;
 
 /**
  * DogDAO

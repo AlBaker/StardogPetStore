@@ -6,12 +6,10 @@ apply plugin: "jetty"
 
 def springVersion = "3.1.0.RELEASE"
 def slf4jVersion = "1.6.1"
-// TODO - change to wherever stardog is unzipped
-def stardogLocation = "../../tools/stardog/stardog-1.0/lib"
 
 repositories {
-	mavenCentral()
 	mavenLocal()
+	mavenCentral()
 }
 
 dependencies{
@@ -26,9 +24,5 @@ dependencies{
 	testCompile "junit:junit:4.8.2"
 	testCompile "org.springframework:spring-test:$springVersion"
 	
-	// Stardog deps made easy with Gradle fileTree
-	// gremlin in stardog/lib comes with groovy, we don't want to pick that up for gradle
-	compile fileTree(dir: stardogLocation, include: '**/*.jar', exclude: '**/*gremlin*/*')
-	compile fileTree(dir:'lib', include: '**/*.jar')
-	
+	compile "com.complexible.stardog:stardog-spring:2.2.1"	
 }
